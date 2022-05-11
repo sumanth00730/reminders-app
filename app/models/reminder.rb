@@ -1,3 +1,4 @@
 class Reminder < ApplicationRecord
-    belongs_to :reminder_type_id
+    enum status: [:active, :archived, :expired]
+    belongs_to :reminder_types
 end
