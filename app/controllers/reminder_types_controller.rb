@@ -1,5 +1,5 @@
 class ReminderTypesController < ApplicationController
-    before_action :set_reminder_type, only: [:edit,:destroy]
+
     def index
         @reminder_types =ReminderType.all
     end

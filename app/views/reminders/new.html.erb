@@ -15,11 +15,11 @@
   </div>
   <div class="col-auto">
     <%= form.label :expire_at, :class=>"form-label" %>
-    <%= form.datetime_field :title, :class=>"form-control" %>
+    <%= form.datetime_field :expire_at, :class=>"form-control" %>
   </div>
   <div class="col-auto">
     <%= form.label :status, :class=>"form-label" %>
-    <%= form.select :reminder_type_id, Reminder.statuses.map{|key,value| [key,value]},
+    <%= form.select :status, Reminder.statuses.map{|key,value| [key.titleize,key]},
     {prompt: "Please select reminder type"},{class: "form-control",placeholder: "Select"}%>
   </div>
 
