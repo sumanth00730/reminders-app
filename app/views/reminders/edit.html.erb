@@ -1,2 +1,31 @@
-<h1>Reminders#edit</h1>
-<p>Find me in app/views/reminders/edit.html.erb</p>
+<div class="container-fluid col-6 mt-lg-4">
+<%= form_with model: @reminder, url: reminder_path(@reminder),method: :patch do |form| %>
+  <div class="col-auto">
+    <%= form.label :title, :class=>"form-label" %>
+    <%= form.text_field :title, :class=>"form-control" %>
+  </div>
+  <div class="col-auto">
+    <%= form.label :content, :class=>"form-label" %>
+    <%= form.text_field :content, :class=>"form-control" %>
+  </div>
+  <div class="col-auto">
+    <%= form.label :reminder_type_id, :class=>"form-label" %>
+    <%= form.select :reminder_type_id, ReminderType.all.map{|rt| [rt.name,rt.id]},
+    {prompt: "Please select reminder type"},{class: "form-control",placeholder: "Select"}%>
+  </div>
+  <div class="col-auto">
+    <%= form.label :expire_at, :class=>"form-label" %>
+    <%= form.datetime_field :expire_at, :class=>"form-control" %>
+  </div>
+  <div class="col-auto">
+    <%= form.label :status, :class=>"form-label" %>
+    <%= form.select :status, Reminder.statuses.map{|key,value| [key.titleize,key]},
+    {prompt: "Please select reminder type"},{class: "form-control",placeholder: "Select"}%>
+  </div>
+
+  <div class="col-auto mt-lg-4">
+    <%= form.submit "Edit",:class=>"btn btn-primary mb-3"%>
+  </div>
+
+<% end %>
+</div>

@@ -2,7 +2,7 @@ class RemindersController < ApplicationController
   before_action :set_reminder_type, only: [:edit, :destroy, :update]
 
   def index
-    @reminder =Reminder.all
+    @reminder = Reminder.all
   end
 
   def new
@@ -10,9 +10,18 @@ class RemindersController < ApplicationController
   end
 
   def edit
+    @reminder = Reminder.find(params[:id])
+    render :edit
   end
 
   def update
+    @reminder = Reminder.find(params[:id])
+        if @reminder.update(reminders_params)
+            flash[:notice] = "Reminder type has been updated successfully"
+            redirect_to reminders_url
+        else
+            flash[:notice] = "Reminder type updation failed"
+        end
   end
 
   def show
@@ -20,7 +29,7 @@ class RemindersController < ApplicationController
   end
 
   def destroy
-    @reminder = Reminder.find(params[:id])
+    @reminder = Reminder.find(set_reminder_type)
         if @reminder.destroy
             flash[:notice] = "Reminder type has been deleted successfully"
             redirect_to reminders_url
@@ -40,7 +49,7 @@ class RemindersController < ApplicationController
   end
   private
         def set_reminder_type
-            @reminder = ReminderType.find(params[:id])
+            @reminder = Reminder.find(params[:id])
         end
         def reminders_params
             params.require(:reminder).permit(:title,:content,:expire_at,:status,:reminder_type_id)

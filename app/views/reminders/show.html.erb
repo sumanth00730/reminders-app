@@ -1,2 +1,12 @@
-<h1>Reminders#show</h1>
-<p>Find me in app/views/reminders/show.html.erb</p>
+<div class="container-fluid text-center col-8">
+    <strong><p class="navbar-brand">Are you sure you want to delete reminder!!</p></strong>
+    <div class="alert alert-danger d-flex align-items-center" role="alert">
+        <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+        <div class="col-6">
+            <%= @reminder.title %>
+        </div>
+        <div class="col-4">
+            <%= button_to "Delete", reminder_type_path, method: :delete,:class=>"btn btn-danger" %>
+        </div>
+    </div>
+</div>
