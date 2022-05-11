@@ -1,3 +1,22 @@
-<% @reminder_types.each do |t|%>
-<%= t.name %>
-<% end %>
+<div class="container-fluid col-8">
+<%= link_to "new", new_reminder_type_url%>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Delete</th>
+    </tr>
+  </thead>
+  <tbody><% c=0 %>
+    <% @reminder_types.each do |t|%>
+    <tr>
+        <% c+=1 %>
+      <th scope="row"><%= c %></th>
+      <td><%= t.name %></td>
+      <td><%= link_to "Delete", "reminder_types/#{t.id}" %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>

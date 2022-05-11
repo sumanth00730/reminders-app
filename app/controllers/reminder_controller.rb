@@ -3,4 +3,7 @@ class ReminderController < ApplicationController
         
     end
 
+    def index
+        
+    end
 end
