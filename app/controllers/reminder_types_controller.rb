@@ -1,9 +1,20 @@
 class ReminderTypesController < ApplicationController
 
     def index
-        @reminder_types =ReminderType.all
+        @reminder_types = ReminderType.all
     end
     def edit
+        @reminder_type = ReminderType.find(params[:id])
+        render :edit
+    end
+    def update
+        @reminder_type = ReminderType.find(params[:id])
+        if @reminder_type.update(reminder_type_params)
+            flash[:notice] = "Reminder type has been updated successfully"
+            redirect_to "/reminders"
+        else
+            flash[:notice] = "Reminder type updation failed"
+        end
     end
     def new
         @reminder_type = ReminderType.new

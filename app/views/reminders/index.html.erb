@@ -22,7 +22,7 @@
       <td><%= ReminderType.find(t.reminder_type_id).name %></td>
       <td><%= t.expire_at %></td>
       <td><%= t.status %></td>
-      <td><%= link_to "Delete", "reminders/#{t.id}" ,method: :delete, :class=>"btn btn-danger" %> <%= link_to "Edit", "reminders/#{t.id}/edit" ,method: :delete, :class=>"btn btn-success" %></td>
+      <td><%= link_to "Delete", "reminders/#{t.id}" ,method: :delete, :class=>"btn btn-danger" %> <%= link_to "Edit", "reminders/#{t.id}/edit" ,method: :delete, :class=>"btn btn-primary" %></td>
     </tr>
     <% end %>
   </tbody>

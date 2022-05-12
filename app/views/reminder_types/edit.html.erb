@@ -1,0 +1,12 @@
+<div class="container-fluid col-6 mt-lg-4">
+<%= form_with model: @reminder_type, url: reminder_type_path(@reminder_type) do |form| %>
+  <div class="col-auto">
+    <%= form.label :name, :class=>"form-label" %>
+    <%= form.text_field :name, :class=>"form-control" %>
+  </div>
+  
+  <div class="col-auto mt-lg-4">
+    <%= form.submit "Edit",:class=>"btn btn-primary mb-3"%>
+  </div>
+<% end %>
+</div>

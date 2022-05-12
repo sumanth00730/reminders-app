@@ -5,6 +5,7 @@
     <tr>
       <th scope="col">#</th>
       <th scope="col">Name</th>
+      <th scope="col">Edit</th>
     </tr>
   </thead>
   <tbody><% c=0 %>
@@ -13,6 +14,7 @@
         <% c+=1 %>
       <th scope="row"><%= c %></th>
       <td><%= t.name %></td>
+      <td><%= link_to "Edit","/reminder_types/#{t.id}/edit",:class=>"btn btn-primary" %></td>
     </tr>
     <% end %>
   </tbody>

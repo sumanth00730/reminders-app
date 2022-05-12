@@ -17,10 +17,10 @@ class RemindersController < ApplicationController
   def update
     @reminder = Reminder.find(params[:id])
         if @reminder.update(reminders_params)
-            flash[:notice] = "Reminder type has been updated successfully"
+            flash[:notice] = "Reminder has been updated successfully"
             redirect_to reminders_url
         else
-            flash[:notice] = "Reminder type updation failed"
+            flash[:notice] = "Reminder updation failed"
         end
   end
 
