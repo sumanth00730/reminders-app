@@ -47,6 +47,11 @@ class RemindersController < ApplicationController
             flash[:notice] = "Reminder type addition failed"
         end
   end
+  
+  def search
+    @reminders = Reminder.where("title like ?","%"+params[:title]+"%")
+  end
+
   private
         def set_reminder_type
             @reminder = Reminder.find(params[:id])

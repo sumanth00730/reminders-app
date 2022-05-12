@@ -1,0 +1,30 @@
+<div class="container-fluid col-8">
+<%= link_to "new", new_reminder_url %>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Title</th>
+      <th scope="col">Content</th>
+      <th scope="col">Reminder Type</th>
+      <th scope="col">Expire At</th>
+      <th scope="col">Status</th>
+      <th scope="col">Delete/Edit</th>
+    </tr>
+  </thead>
+  <tbody><% c=0 %>
+    <% @reminders.each do |t|%>
+    <tr>
+        <% c+=1 %>
+      <th scope="row"><%= c %></th>
+      <td><%= t.title %></td>
+      <td><%= t.content %></td>
+      <td><%= ReminderType.find(t.reminder_type_id).name %></td>
+      <td><%= t.expire_at %></td>
+      <td><%= t.status %></td>
+      <td><%= link_to "Delete", "reminders/#{t.id}" ,method: :delete, :class=>"btn btn-danger" %> <%= link_to "Edit", "reminders/#{t.id}/edit" ,method: :delete, :class=>"btn btn-primary" %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
