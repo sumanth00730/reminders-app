@@ -7,10 +7,10 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <%= link_to "Reminders", reminders_path , :class=>"nav-link"%>
+              <a class="nav-link <%= 'active' if controller_name=='reminders'%>" href="<%= reminders_path %>">Reminders</a>
             </li>
             <li class="nav-item">
-              <%= link_to "Reminder Type", reminder_types_path , :class=>"nav-link"%>
+              <a class="nav-link <%= 'active' if controller_name=='reminder_types'%>" href="<%= reminder_types_path %>">Reminder Type</a>
             </li>
         </ul>
       <%= form_with(:method=>"get",url: "/search", :class=>"d-flex") do |form|%>
