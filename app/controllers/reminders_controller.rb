@@ -29,7 +29,7 @@ class RemindersController < ApplicationController
   end
 
   def destroy
-    @reminder = Reminder.find(set_reminder_type)
+    @reminder = Reminder.find(params[:id])
         if @reminder.destroy
             flash[:notice] = "Reminder type has been deleted successfully"
             redirect_to reminders_url
